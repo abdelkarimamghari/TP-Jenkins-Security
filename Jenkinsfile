@@ -18,7 +18,7 @@ pipeline {
         }
         stage('SCA Scan') {
             steps {
-                sh 'dependency-check.sh --project "TP-Jenkins-Security" --scan . --format HTML --failOnCVSS 7 --nvdApiKey "D205E069-7919-F111-8369-0EBF96DE670D"'
+                sh 'dependency-check.sh --project "TP-Jenkins-Security" --scan . --format HTML --failOnCVSS 7 --nvdApiKey c971f97b-cc21-4a87-a85d-aaaec35d6162'
             }
         }
     }

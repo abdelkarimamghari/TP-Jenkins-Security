@@ -18,13 +18,15 @@ pipeline {
         }
         stage('SAST Scan') {
             steps {
-                // Hna zedna l'étape 9 dyal SonarQube
-                sh 'sonar-scanner'
+                // Hna 3eyetna l-outil li saybna f Jenkins
+                script {
+                    def scannerHome = tool 'sonar-scanner'
+                    sh "${scannerHome}/bin/sonar-scanner"
+                }
             }
         }
         stage('SCA Scan') {
             steps {
-                // Hna 7iydna l-API key w khlina ghir l-i3dadat l-assasiya dyal l-TP
                 sh 'dependency-check.sh --project "TP-Jenkins-Security" --scan . --format HTML --failOnCVSS 7'
             }
         }

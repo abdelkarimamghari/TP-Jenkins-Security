@@ -8,12 +8,17 @@ pipeline {
         }
         stage('Install Dependencies') {
             steps {
-                sh 'pip install -r requirements.txt'
+                sh 'pip3 install --break-system-packages -r requirements.txt || true'
             }
         }
         stage ('Run Tests') {
             steps {
                 sh 'pytest'
+            }
+        }
+        stage('SCA Scan') {
+            steps {
+                sh 'dependency-check.sh --project "TP-Jenkins-Security" --scan . --format HTML'
             }
         }
     }

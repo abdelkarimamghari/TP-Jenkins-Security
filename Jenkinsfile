@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Install Dependencies') {
             steps {
-                sh 'pip3 install --break-system-packages -r requirements.txt || true'
+                sh 'pip install -r requirements.txt || true'
             }
         }
         stage ('Run Tests') {
@@ -18,7 +18,7 @@ pipeline {
         }
         stage('SCA Scan') {
             steps {
-                sh 'dependency-check.sh --project "TP-Jenkins-Security" --scan . --format HTML'
+                sh 'dependency-check.sh --project "TP-Jenkins-Security" --scan . --format HTML --noupdate'
             }
         }
     }

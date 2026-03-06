@@ -26,7 +26,8 @@ pipeline {
         }
         stage('SCA Scan') {
             steps {
-                sh 'dependency-check.sh --project "TP-Jenkins-Security" --scan . --format HTML --failOnCVSS 7 --nvdApiKey c971f97b-cc21-4a87-a85d-aaaec35d6162 --nvdApiDelay 16000'
+                // Zedna --noupdate bach may-9lebch f NVD w may-blkouch
+                sh 'dependency-check.sh --project "TP-Jenkins-Security" --scan . --format HTML --failOnCVSS 7 --noupdate'
             }
         }
     }

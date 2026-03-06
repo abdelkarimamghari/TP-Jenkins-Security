@@ -16,9 +16,16 @@ pipeline {
                 sh 'pytest'
             }
         }
+        stage('SAST Scan') {
+            steps {
+                // Hna zedna l'étape 9 dyal SonarQube
+                sh 'sonar-scanner'
+            }
+        }
         stage('SCA Scan') {
             steps {
-                sh 'dependency-check.sh --project "TP-Jenkins-Security" --scan . --format HTML --failOnCVSS 7 --nvdApiKey c971f97b-cc21-4a87-a85d-aaaec35d6162 --nvdApiDelay 16000'
+                // Hna 7iydna l-API key w khlina ghir l-i3dadat l-assasiya dyal l-TP
+                sh 'dependency-check.sh --project "TP-Jenkins-Security" --scan . --format HTML --failOnCVSS 7'
             }
         }
     }

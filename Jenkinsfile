@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Install Dependencies') {
             steps {
-                sh 'pip install -r requirements.txt || true'
+                sh 'pip3 install --break-system-packages -r requirements.txt || true'
             }
         }
         stage ('Run Tests') {

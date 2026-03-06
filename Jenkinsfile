@@ -18,7 +18,7 @@ pipeline {
         }
         stage('SCA Scan') {
             steps {
-                sh 'dependency-check.sh --project "TP-Jenkins-Security" --scan . --format HTML --noupdate'
+                sh 'dependency-check.sh --project "TP-Jenkins-Security" --scan . --format HTML'
             }
         }
     }
